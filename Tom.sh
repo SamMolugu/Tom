@@ -4,18 +4,13 @@
 ################################################################################
 #Program name Tom.sh
 
-#Purpose is to serve as a personal assiastant to make pc use easier
+#Purpose is to make some basic functions on linux os convenient for the user.
 
 #current implement functions:: 
 #introduction 
 #Check function, read function, close function, open function, shutdown functions, nickname function, scan function, task manager, install function, remove functioin
-
-#Future implementations::
-
-#interactivity, add events to calender, volume control
-#3 levels of state, happy, angry, neutral
 ###############################################################################
-#lists what all the functions tom has
+# Lists all the functionality of application
 function tom
 {
 	echo "Seems like you are lost"
@@ -40,7 +35,7 @@ function tom
 	echo "quit--------------------"
 	echo "exit program"
 }
-#all functions that involve opening another application
+# All functions that involve opening another application
 function check  
 {
 echo What would you like to check?
@@ -58,12 +53,14 @@ case $ANS in
 		echo "Sorry, I can't do that"
 esac
 }
-#simple function to end all running processes and to log-out
+
+# Simple function to end all running processes and to log-out
 function closeAll
 {
 	killall5 -9
 }
- #read a file without opening (.txt, pdf,ex..)
+
+# Read a file without opening (.txt, pdf,ex..)
 function scan 
 {
 	echo "Enter name of file:"
@@ -79,7 +76,8 @@ function scan
 		echo "Hope I helped"
         fi
 }
-#start an application
+
+# Start an application
 function open 
 {
 	echo Which application would you like to open?
@@ -96,12 +94,14 @@ function open
 			echo "Sorry, I coudn't find that application"
 	esac	
 }
-#system shutdown
+
+# System shutdown
 function shutDown 
 {
 	shutdown -h now
 }
-# task manager function 
+
+# Task manager function 
 function taskMan
 {
 	declare -i lie=0
@@ -135,7 +135,8 @@ function taskMan
 	}
 fi
 }
-#function to change current username
+
+# Function to change current username
 function nickName
 {
 	echo Enter a new username: 
@@ -143,7 +144,8 @@ function nickName
 	usermod -l $nUSER $USER
 	usermod -d /home/newHomeDir -m $nUSER
 }
-#function to insatall an file/application
+
+#Function to insatall an file/application
 function install
 {
 	echo "What file do you want to install?"
@@ -151,7 +153,8 @@ function install
 	sudo apt install $fileName
 	#try catch if filename is not found
 }
-#function to remove a file/application
+
+#Function to remove a file/application
 function remove
 {
 	echo "What would you like to remove?"
@@ -159,12 +162,7 @@ function remove
 	sudo apt-get --purge remove $fileName
 	#try catch if filename is not found
 }
-#to make tom more interactive/simple for user, as well as to explain his capabilities
-function interact
-{
-	echo "Under construction"
-	#lotta things  goes here
-}
+
 echo "Hello I am tom, welcome $USER"
 echo "What can I do for you today?"
 declare -i fCounter=0
